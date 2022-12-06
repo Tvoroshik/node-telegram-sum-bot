@@ -1,4 +1,5 @@
 import { AbstractGoogleSpreadsheetService } from './index'
+<<<<<<< HEAD
 import { EditedTransaction, Transaction } from '../model'
 import { join } from 'path'
 import { last } from 'lodash'
@@ -7,10 +8,17 @@ export class TransactionsService extends AbstractGoogleSpreadsheetService {
 
     private lastTransactionRow?: number
 
+=======
+import { Transaction } from '../model'
+
+export class TransactionsService extends AbstractGoogleSpreadsheetService {
+
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
     constructor(sheetId: string, authEmail: string, authKey: string) {
         super(sheetId, authEmail, authKey)
     }
 
+<<<<<<< HEAD
     private async getSheet() {
         const d = await this.doc
         return d.sheetsByTitle["transactions"]
@@ -20,6 +28,12 @@ export class TransactionsService extends AbstractGoogleSpreadsheetService {
         const sheet = await this.getSheet()
         const row = await sheet.addRow({
             id: t.id,
+=======
+    async addTransaction(t: Transaction) {
+        const d = await this.doc
+        const sheet = d.sheetsByTitle["transactions"]
+        await sheet.addRow({
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
             date: t.date.toDateString(),
             user: t.user,
             type: t.type.name,
@@ -27,6 +41,7 @@ export class TransactionsService extends AbstractGoogleSpreadsheetService {
             amount: t.amountOfMoney,
             comment: t.comment || ""
         })
+<<<<<<< HEAD
         this.lastTransactionRow = row.rowIndex
     }
 
@@ -44,5 +59,7 @@ export class TransactionsService extends AbstractGoogleSpreadsheetService {
         if (editedTransaction.amountOfMoney != null) row["amount"] = editedTransaction.amountOfMoney
         if (editedTransaction.comment != null) row["comment"] = editedTransaction.comment
         await row.save()
+=======
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
     }
 }

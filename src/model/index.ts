@@ -1,5 +1,8 @@
 export class Transaction {
+<<<<<<< HEAD
     id: number
+=======
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
     date: Date
     user: string
     type: TransactionType
@@ -7,8 +10,12 @@ export class Transaction {
     amountOfMoney: number
     comment?: string
 
+<<<<<<< HEAD
     constructor(id: number, date: Date, user: string, type: TransactionType, category: Category, amountOfMoney: number, comment?: string) {
         this.id = id
+=======
+    constructor(date: Date, user: string, type: TransactionType, category: Category, amountOfMoney: number, comment?: string) {
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
         this.date = date
         this.user = user
         this.type = type
@@ -18,6 +25,7 @@ export class Transaction {
     }
 }
 
+<<<<<<< HEAD
 export interface EditedTransaction {
     id: number
     date?: Date
@@ -28,6 +36,8 @@ export interface EditedTransaction {
     comment?: string
 }
 
+=======
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
 export class TransactionType {
     name: string
     comment?: string
@@ -38,6 +48,7 @@ export class TransactionType {
     }
 }
 
+<<<<<<< HEAD
 export interface CategorySynonym<V> {
     value: V
 
@@ -72,14 +83,23 @@ export function parseCategorySynonym(s: string): CategorySynonymString | Categor
 }
 
 
+=======
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
 export class Category {
     transactionTypeName: string
     name: string
     parentCategoryName?: string
+<<<<<<< HEAD
     synonyms: CategorySynonym<string | RegExp>[]
     comment?: string
 
     constructor(transactionTypeName: string, name: string, synonyms: CategorySynonym<string | RegExp>[], parentCategoryName?: string, comment?: string) {
+=======
+    synonyms: string[]
+    comment?: string
+
+    constructor(transactionTypeName: string, name: string, synonyms: string[], parentCategoryName?: string, comment?: string) {
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
         this.transactionTypeName = transactionTypeName
         this.name = name
         this.parentCategoryName = parentCategoryName
@@ -87,8 +107,11 @@ export class Category {
         this.comment = comment
     }
 
+<<<<<<< HEAD
     matches(s: string): boolean {
         return this.name.toLowerCase() === s.toLocaleLowerCase() || (this.synonyms.find(synonym => synonym.matches(s)) != null)
     }
 
+=======
+>>>>>>> 59b45f267b8669b37dbb5d7b912d998a93367721
 }
